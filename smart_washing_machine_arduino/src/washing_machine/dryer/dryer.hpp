@@ -16,10 +16,10 @@ public:
   Dryer(DrainValve drain_valve, Spinner spinner);
   void setup();
   void loop();
-  void open_drain();
-  void spin();
+  bool open_drain();
+  bool spin();
   void stop();
-  void close_drain_and_brake();
+  bool close_drain_and_brake();
 };
 
 #endif

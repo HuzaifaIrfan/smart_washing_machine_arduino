@@ -14,26 +14,45 @@
 #include "washing_machine/lid/lid.hpp"
 #include "washing_machine/water_level_sensor/water_level_sensor.hpp"
 
+class WashingMachine
+{
+private:
+  InletValves inlet_valves;
+  DrainValve drain_valve;
+  Spinner spinner;
+  Dryer dryer;
 
+  Lid lid;
+  WaterLevelSensor water_level_sensor;
 
-class WashingMachine {
-  private:
+public:
+  WashingMachine(InletValves inlet_valves, DrainValve drain_valve, Spinner spinner, Dryer dryer, Lid lid, WaterLevelSensor water_level_sensor);
+  void setup();
+  void loop();
+  void stop();
 
-    InletValves inlet_valves;
-    DrainValve drain_valve;
-    Spinner spinner;
-    Dryer dryer;
+  // Inlet Valve Methods
+  void open_inlet_valves();
+  void open_hot_inlet_valve();
+  void open_close_inlet_valve();
+  void close_inlet_valves();
 
-    Lid lid;
-    WaterLevelSensor water_level_sensor;
+  // Drain Valve Methods
+  void open_drain_valve();
+  void close_drain_valve();
 
-  public:
-    WashingMachine(InletValves inlet_valves, DrainValve drain_valve, Spinner spinner, Dryer dryer, Lid lid, WaterLevelSensor water_level_sensor);
-    void setup();
-    void loop();
-    void stop();
+  // Spinner Methods
+  void stop_spinner();
+  void spin_spinner_clockwise();
+  void spin_spinner_nti_clockwise();
+
+  // Dryer Methods
+  bool WashingMachine::open_dryer_drain();
+  bool WashingMachine::spin_dryer();
+  void WashingMachine::stop_dryer();
+  bool WashingMachine::close_drain_and_brake_dryer();
+  
 };
-
 
 extern WashingMachine washing_machine;
 

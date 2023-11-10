@@ -23,20 +23,81 @@ void WashingMachine::stop()
 {
     inlet_valves.close();
     spinner.stop();
+    drain_valve.close();
+}
 
-    // drain_valve.close();
-} 
+// Inlet Valve Methods
 
+void WashingMachine::open_inlet_valves()
+{
+    inlet_valves.open();
+}
 
+void WashingMachine::open_hot_inlet_valve()
+{
+    inlet_valves.open_hot();
+}
+void WashingMachine::open_close_inlet_valve()
+{
+    inlet_valves.open_cold();
+}
 
+void WashingMachine::close_inlet_valves()
+{
+    inlet_valves.close();
+}
 
+// Drain Valve Methods
 
+void WashingMachine::open_drain_valve()
+{
+    drain_valve.open();
+}
 
+void WashingMachine::close_drain_valve()
+{
+    drain_valve.close();
+}
 
+// Spinner Methods
 
+void WashingMachine::stop_spinner()
+{
+    spinner.stop();
+}
 
+void WashingMachine::spin_spinner_clockwise()
+{
+    spinner.spin_clockwise();
+}
 
+void WashingMachine::spin_spinner_nti_clockwise()
+{
+    spinner.spin_anti_clockwise();
+}
 
+// Dryer Methods
+bool WashingMachine::open_dryer_drain()
+{
+    return dryer.open_drain();
+}
+
+bool WashingMachine::spin_dryer()
+{
+    return dryer.spin();
+}
+
+void WashingMachine::stop_dryer()
+{
+    dryer.stop();
+}
+
+bool WashingMachine::close_drain_and_brake_dryer()
+{
+    return dryer.close_drain_and_brake();
+}
+
+// Washing Machine Configuration
 
 Relay hot_water_inlet_valve_relay(HOT_WATER_INLET_VALVE_RELAY_OUTPUT_PIN);
 Relay cold_water_inlet_valve_relay(COLD_WATER_INLET_VALVE_RELAY_OUTPUT_PIN);
@@ -55,5 +116,3 @@ Lid lid(LID_INPUT_PIN);
 WaterLevelSensor water_level_sensor;
 
 WashingMachine washing_machine(inlet_valves, drain_valve, spinner, dryer, lid, water_level_sensor);
-
-
