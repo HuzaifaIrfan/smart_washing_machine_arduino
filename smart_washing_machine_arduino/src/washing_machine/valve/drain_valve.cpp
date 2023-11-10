@@ -22,3 +22,13 @@ void DrainValve::close()
 {
     water_drain_valve_relay.off();
 }
+
+bool DrainValve::return_state()
+{
+    return water_drain_valve_relay.return_state();
+}
+
+bool DrainValve::is_open()
+{
+    return return_state();
+}

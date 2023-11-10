@@ -16,6 +16,8 @@ class DrainValve {
     void loop();
     void open();
     void close();
+    bool return_state();
+    bool is_open();
 };
 
 #endif

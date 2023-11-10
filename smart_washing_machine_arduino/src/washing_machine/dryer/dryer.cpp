@@ -16,10 +16,29 @@ void Dryer::loop()
 
 void Dryer::open_drain()
 {
-    drain_valve.open();
+    if (spinner.is_off())
+    {
+        drain_valve.open();
+    }
+}
+
+void Dryer::spin()
+{
+    if (drain_valve.is_open())
+    {
+        spinner.spin_dryer();
+    }
+}
+
+void Dryer::stop()
+{
+    spinner.stop();
 }
 
 void Dryer::close_drain_and_brake()
 {
-    drain_valve.close();
+    if (spinner.is_off())
+    {
+        drain_valve.close();
+    }
 }
