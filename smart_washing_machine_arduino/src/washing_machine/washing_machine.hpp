@@ -34,6 +34,6 @@ class WashingMachine {
 };
 
 
-
+extern WashingMachine washing_machine;
 
 #endif

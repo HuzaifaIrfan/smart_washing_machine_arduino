@@ -8,7 +8,7 @@ PowerRelay::PowerRelay(short pin) : pin(pin)
 void PowerRelay::setup()
 {
     pinMode(pin, OUTPUT);
-    digitalWrite(pin, LOW);
+    off();
 }
 
 void PowerRelay::loop()

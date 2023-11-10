@@ -13,6 +13,7 @@ void WashingMachine::setup()
     dryer.setup();
     lid.setup();
     water_level_sensor.setup();
+    inlet_valves.open();
 }
 
 void WashingMachine::loop()
@@ -22,11 +23,18 @@ void WashingMachine::loop()
 
 
 
+
+
+
+
+
+
+
+
 Relay hot_water_inlet_valve_relay(HOT_WATER_INLET_VALVE_RELAY_OUTPUT_PIN);
 Relay cold_water_inlet_valve_relay(COLD_WATER_INLET_VALVE_RELAY_OUTPUT_PIN);
 
 Relay water_drain_valve_relay(WATER_DRAIN_VALVE_RELAY_OUTPUT_PIN);
-
 
 PowerRelay clockwise_spinner_power_relay(CLOCKWISE_SPINNER_POWER_RELAY_OUTPUT_PIN);
 PowerRelay anticlockwise_spinner_power_relay(ANTICLOCKWISE_SPINNER_POWER_RELAY_OUTPUT_PIN);
@@ -40,3 +48,5 @@ Lid lid(LID_INPUT_PIN);
 WaterLevelSensor water_level_sensor;
 
 WashingMachine washing_machine(inlet_valves, drain_valve, spinner, dryer, lid, water_level_sensor);
+
+

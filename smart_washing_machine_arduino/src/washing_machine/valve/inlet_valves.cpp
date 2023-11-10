@@ -18,7 +18,7 @@ void InletValves::loop()
 void InletValves::open()
 {
     hot_water_inlet_valve_relay.on();
-    hot_water_inlet_valve_relay.on();
+    cold_water_inlet_valve_relay.on();
 }
 
 void InletValves::open_hot()

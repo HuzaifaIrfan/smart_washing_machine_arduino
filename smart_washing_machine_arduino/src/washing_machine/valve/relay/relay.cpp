@@ -8,7 +8,7 @@ Relay::Relay(short pin) : pin(pin)
 void Relay::setup()
 {
     pinMode(pin, OUTPUT);
-    digitalWrite(pin, HIGH);
+    off();
 }
 
 void Relay::loop()

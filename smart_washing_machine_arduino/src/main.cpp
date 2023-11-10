@@ -15,6 +15,7 @@ void setup()
   Serial.begin(9600);
   display.setup();
   keypad.setup();
+  washing_machine_controller.setup();
 }
 
 void loop()
