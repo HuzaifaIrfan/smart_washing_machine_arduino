@@ -34,7 +34,7 @@ public:
   // Inlet Valve Methods
   void open_inlet_valves();
   void open_hot_inlet_valve();
-  void open_close_inlet_valve();
+  void open_cold_inlet_valve();
   void close_inlet_valves();
 
   // Drain Valve Methods
@@ -47,10 +47,10 @@ public:
   void spin_spinner_nti_clockwise();
 
   // Dryer Methods
-  bool WashingMachine::open_dryer_drain();
-  bool WashingMachine::spin_dryer();
-  void WashingMachine::stop_dryer();
-  bool WashingMachine::close_drain_and_brake_dryer();
+  bool open_dryer_drain();
+  bool spin_dryer();
+  void stop_dryer();
+  bool close_drain_and_brake_dryer();
   
 };
 

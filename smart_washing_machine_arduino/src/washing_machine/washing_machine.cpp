@@ -37,7 +37,7 @@ void WashingMachine::open_hot_inlet_valve()
 {
     inlet_valves.open_hot();
 }
-void WashingMachine::open_close_inlet_valve()
+void WashingMachine::open_cold_inlet_valve()
 {
     inlet_valves.open_cold();
 }

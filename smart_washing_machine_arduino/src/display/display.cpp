@@ -32,3 +32,5 @@ void Display::set_cursor_and_print(String message, uint8_t col, uint8_t row)
     set_cursor(col, row);
     print(message);
 }
+
+Display display;

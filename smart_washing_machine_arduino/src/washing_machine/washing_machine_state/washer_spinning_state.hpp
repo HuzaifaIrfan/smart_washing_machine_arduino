@@ -4,8 +4,8 @@
 
 #include "washing_machine_state.hpp"
 
-class WasherSpinningState : public WashingMachineState {
-
+class WasherSpinningState : public WashingMachineState
+{
 
 private:
   void running_loop();
@@ -14,7 +14,6 @@ private:
 public:
   using WashingMachineState::WashingMachineState;
   void setup();
-
 };
 
 #endif

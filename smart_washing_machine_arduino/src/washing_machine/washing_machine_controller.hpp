@@ -2,6 +2,10 @@
 #define WASHINGMACHINECONTROLLER_H
 
 #include <Arduino.h>
+
+#include "display/display.hpp"
+
+
 #include "washing_machine/washing_machine.hpp"
 
 #include "washing_machine_state/washing_machine_state.hpp"
@@ -36,5 +40,7 @@ public:
   void setup();
   void loop();
 };
+
+extern WashingMachineController washing_machine_controller;
 
 #endif

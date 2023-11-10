@@ -15,4 +15,6 @@ class Display {
     void set_cursor_and_print(String message, uint8_t col, uint8_t row);
 };
 
+extern Display display;
+
 #endif

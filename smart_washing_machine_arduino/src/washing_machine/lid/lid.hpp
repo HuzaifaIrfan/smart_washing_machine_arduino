@@ -3,13 +3,17 @@
 
 #include <Arduino.h>
 
-class Lid {
-  private:
-    short pin;
-  public:
-    Lid(short pin);
-    void setup();
-    void loop();
+class Lid
+{
+private:
+  short pin;
+  static volatile bool lid_open_or_vibration_interrupted;
+
+public:
+  Lid(short pin);
+  void setup();
+  void loop();
+  static void lid_open_or_dryer_vibration_switch_interrupt_service_routine();
 };
 
 #endif

@@ -23,4 +23,4 @@ void WashingMachineController::loop()
 }
 
 
-
+WashingMachineController washing_machine_controller;

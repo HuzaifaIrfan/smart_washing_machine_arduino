@@ -1,7 +1,8 @@
 
 #include "keypad.hpp"
 
-Keypad::Keypad(Display display):display(display)
+
+Keypad::Keypad(Display display, WashingMachineController washing_machine_controller):display(display), washing_machine_controller(washing_machine_controller)
 {
 }
 
@@ -80,10 +81,12 @@ void Keypad::loop(){
     display.print("SELECT");
     break;
   }
-  case btnNONE:
-  {
-    display.print("NONE  ");
-    break;
-  }
+  // case btnNONE:
+  // {
+  //   display.print("NONE  ");
+  //   break;
+  // }
   }
 }
+
+Keypad keypad(display, washing_machine_controller);
