@@ -7,7 +7,8 @@ Spinner::Spinner(PowerRelay clockwise_spinner_power_relay, PowerRelay anticlockw
 
 void Spinner::setup()
 {
-
+    clockwise_spinner_power_relay.setup();
+    anticlockwise_spinner_power_relay.setup();
 }
 
 void Spinner::loop()

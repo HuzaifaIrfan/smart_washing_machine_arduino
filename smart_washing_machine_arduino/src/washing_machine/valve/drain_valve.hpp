@@ -14,6 +14,8 @@ class DrainValve {
     DrainValve(Relay water_drain_valve_relay);
     void setup();
     void loop();
+    void open();
+    void close();
 };
 
 #endif

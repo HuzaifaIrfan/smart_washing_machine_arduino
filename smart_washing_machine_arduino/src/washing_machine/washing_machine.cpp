@@ -7,6 +7,12 @@ WashingMachine::WashingMachine(InletValves inlet_valves, DrainValve drain_valve,
 
 void WashingMachine::setup()
 {
+    inlet_valves.setup();
+    drain_valve.setup();
+    spinner.setup();
+    dryer.setup();
+    lid.setup();
+    water_level_sensor.setup();
 }
 
 void WashingMachine::loop()

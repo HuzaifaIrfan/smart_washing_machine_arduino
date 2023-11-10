@@ -16,6 +16,10 @@ class InletValves {
     InletValves(Relay hot_water_inlet_valve_relay, Relay cold_water_inlet_valve_relay);
     void setup();
     void loop();
+    void open();
+    void open_hot();
+    void open_cold();
+    void close();
 };
 
 #endif
