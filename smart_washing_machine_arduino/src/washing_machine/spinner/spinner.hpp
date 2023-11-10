@@ -15,6 +15,11 @@ class Spinner {
     Spinner(PowerRelay clockwise_spinner_power_relay, PowerRelay anticlockwise_spinner_power_relay);
     void setup();
     void loop();
+    void stop();
+
+    void spin_clockwise();
+    void spin_anti_clockwise();
+    void spin_dryer();
 };
 
 #endif

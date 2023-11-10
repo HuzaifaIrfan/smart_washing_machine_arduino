@@ -21,9 +21,31 @@ enum WASHING_MACHINE_STATES
 class WashingMachineState {
 protected:
   WashingMachine washing_machine;
+  bool running_state = false;
+  virtual void running_loop(){};
+  virtual void paused_loop(){};
 public:
   explicit WashingMachineState(WashingMachine washing_machine)
     : washing_machine(washing_machine) {}
+
+  void run(){
+    running_state=true;
+  }
+  void pause(){
+    running_state=false;
+  }
+  
+  virtual void setup(){};
+
+  void loop(){
+    if(running_state){
+      running_loop();
+    }else{
+      paused_loop();
+    }
+  }
+
+
 
 };
 

@@ -20,5 +20,6 @@ void setup()
 
 void loop()
 {
+  washing_machine_controller.loop();
   keypad.loop();
 }

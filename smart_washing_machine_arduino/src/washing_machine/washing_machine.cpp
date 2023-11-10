@@ -13,12 +13,19 @@ void WashingMachine::setup()
     dryer.setup();
     lid.setup();
     water_level_sensor.setup();
-    inlet_valves.open();
 }
 
 void WashingMachine::loop()
 {
 }
+
+void WashingMachine::stop()
+{
+    inlet_valves.close();
+    spinner.stop();
+
+    // drain_valve.close();
+} 
 
 
 

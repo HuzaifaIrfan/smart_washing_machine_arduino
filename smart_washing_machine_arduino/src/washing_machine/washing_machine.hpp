@@ -31,6 +31,7 @@ class WashingMachine {
     WashingMachine(InletValves inlet_valves, DrainValve drain_valve, Spinner spinner, Dryer dryer, Lid lid, WaterLevelSensor water_level_sensor);
     void setup();
     void loop();
+    void stop();
 };
 
 

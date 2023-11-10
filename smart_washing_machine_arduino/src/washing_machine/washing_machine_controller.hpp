@@ -21,12 +21,15 @@ private:
   WaterDrainingState water_draining_state = WaterDrainingState(washing_machine);
   DryerState dryer_state = DryerState(washing_machine);
 
-  WashingMachineState *washing_machine_state[5] = {
+  WashingMachineState *washing_machine_states[5] = {
       &machine_off_state,
       &water_filling_state,
       &washer_spinning_state,
       &water_draining_state,
       &dryer_state};
+
+  short current_state_index=MACHINE_OFF_STATE;
+  short next_state_index=MACHINE_OFF_STATE;
 
 public:
   WashingMachineController();
