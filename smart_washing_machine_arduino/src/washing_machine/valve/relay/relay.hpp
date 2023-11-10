@@ -4,10 +4,14 @@
 #include <Arduino.h>
 
 class Relay {
+  private:
+    short pin;
   public:
-    Relay();
+    Relay(short pin);
     void setup();
     void loop();
+    void on();
+    void off();
 };
 
 #endif

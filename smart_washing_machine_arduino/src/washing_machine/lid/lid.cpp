@@ -1,7 +1,7 @@
 
 #include "lid.hpp"
 
-Lid::Lid()
+Lid::Lid(short pin):pin(pin)
 {
 }
 

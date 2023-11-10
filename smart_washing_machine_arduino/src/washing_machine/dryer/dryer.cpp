@@ -1,7 +1,7 @@
 
 #include "dryer.hpp"
 
-Dryer::Dryer()
+Dryer::Dryer(DrainValve drain_valve, Spinner spinner):drain_valve(drain_valve), spinner(spinner)
 {
 }
 

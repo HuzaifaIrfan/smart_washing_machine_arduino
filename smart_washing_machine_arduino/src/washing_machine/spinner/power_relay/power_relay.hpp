@@ -4,10 +4,14 @@
 #include <Arduino.h>
 
 class PowerRelay {
+  private:
+    short pin;
   public:
-    PowerRelay();
+    PowerRelay(short pin);
     void setup();
     void loop();
+    void on();
+    void off();
 };
 
 #endif

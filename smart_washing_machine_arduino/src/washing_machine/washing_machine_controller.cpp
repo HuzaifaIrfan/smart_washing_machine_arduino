@@ -1,6 +1,8 @@
 
 #include "washing_machine_controller.hpp"
 
+
+
 WashingMachineController::WashingMachineController()
 {
 }

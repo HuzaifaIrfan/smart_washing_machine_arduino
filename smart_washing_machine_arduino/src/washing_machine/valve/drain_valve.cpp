@@ -1,7 +1,7 @@
 
 #include "drain_valve.hpp"
 
-DrainValve::DrainValve()
+DrainValve::DrainValve(Relay water_drain_valve_relay):water_drain_valve_relay(water_drain_valve_relay)
 {
 }
 

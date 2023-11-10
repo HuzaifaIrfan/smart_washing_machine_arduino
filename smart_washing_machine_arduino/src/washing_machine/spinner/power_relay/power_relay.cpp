@@ -1,7 +1,7 @@
 
 #include "power_relay.hpp"
 
-PowerRelay::PowerRelay()
+PowerRelay::PowerRelay(short pin):pin(pin)
 {
 }
 

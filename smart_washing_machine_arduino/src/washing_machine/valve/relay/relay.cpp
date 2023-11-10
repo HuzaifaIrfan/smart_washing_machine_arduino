@@ -1,7 +1,7 @@
 
 #include "relay.hpp"
 
-Relay::Relay()
+Relay::Relay(short pin):pin(pin)
 {
 }
 

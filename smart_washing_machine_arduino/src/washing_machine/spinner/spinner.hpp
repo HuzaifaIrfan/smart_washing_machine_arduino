@@ -5,9 +5,14 @@
 
 #include "washing_machine/spinner/power_relay/power_relay.hpp"
 
+
+
 class Spinner {
+  private:
+    PowerRelay clockwise_spinner_power_relay;
+    PowerRelay anticlockwise_spinner_power_relay;
   public:
-    Spinner();
+    Spinner(PowerRelay clockwise_spinner_power_relay, PowerRelay anticlockwise_spinner_power_relay);
     void setup();
     void loop();
 };

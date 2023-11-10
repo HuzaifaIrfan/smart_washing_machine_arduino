@@ -4,8 +4,10 @@
 #include <Arduino.h>
 
 class Lid {
+  private:
+    short pin;
   public:
-    Lid();
+    Lid(short pin);
     void setup();
     void loop();
 };

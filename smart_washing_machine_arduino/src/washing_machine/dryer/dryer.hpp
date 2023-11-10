@@ -3,9 +3,16 @@
 
 #include <Arduino.h>
 
+#include "washing_machine/valve/drain_valve.hpp"
+#include "washing_machine/spinner/spinner.hpp"
+
+
 class Dryer {
+  private:
+    DrainValve drain_valve;
+    Spinner spinner;
   public:
-    Dryer();
+    Dryer(DrainValve drain_valve, Spinner spinner);
     void setup();
     void loop();
 };
