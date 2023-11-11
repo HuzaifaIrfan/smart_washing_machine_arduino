@@ -6,6 +6,8 @@
 #include "output/display/display.hpp"
 #include "washing_machine/washing_machine_controller.hpp"
 
+#include "washing_machine/washing_machine_routine.hpp"
+
 #include "GPIO_CONFIG.hpp"
 
 class Keypad {

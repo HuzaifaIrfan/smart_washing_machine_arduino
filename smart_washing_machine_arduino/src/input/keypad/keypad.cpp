@@ -1,6 +1,28 @@
 
 #include "keypad.hpp"
 
+// void change_to_new_routine(){
+// int new_machine_routines[16][4] = {
+//     {MACHINE_WAITING_STATE, 1, 0, 0},
+//     {MACHINE_WAITING_STATE, 1, 0, 0},
+//     {MACHINE_WAITING_STATE, 1, 0, 0},
+//     {MACHINE_WAITING_STATE, 1, 0, 0},
+//     {MACHINE_WAITING_STATE, 1, 0, 0},
+//     {MACHINE_WAITING_STATE, 1, 0, 0},
+//     {MACHINE_WAITING_STATE, 1, 0, 0},
+//     {MACHINE_WAITING_STATE, 1, 0, 0},
+//     {MACHINE_WAITING_STATE, 1, 0, 0},
+//     {MACHINE_WAITING_STATE, 1, 0, 0},
+//     {MACHINE_WAITING_STATE, 1, 0, 0},
+//     {MACHINE_WAITING_STATE, 1, 0, 0},
+//     {MACHINE_WAITING_STATE, 1, 0, 0},
+//     {MACHINE_WAITING_STATE, 1, 0, 0},
+//     {MACHINE_WAITING_STATE, 1, 0, 0},
+//     {MACHINE_WAITING_STATE, 1, 0, 0}};
+
+//     replace_machine_routines(new_machine_routines);
+// }
+
 Keypad::Keypad(Display *display, WashingMachineController *washing_machine_controller) : display(display), washing_machine_controller(washing_machine_controller)
 {
 }
@@ -85,6 +107,7 @@ void Keypad::loop()
   {
     // display->print("RIGHT ");
     Serial.println("Reset");
+    // change_to_new_routine();
     washing_machine_controller->reset();
     break;
   }
@@ -96,5 +119,8 @@ void Keypad::loop()
     // }
   }
 }
+
+
+
 
 Keypad keypad(&display, &washing_machine_controller);
