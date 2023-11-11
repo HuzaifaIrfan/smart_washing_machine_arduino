@@ -8,10 +8,14 @@
 
 class Buttons
 {
+private:
+    ezButton hold_skip_input_button;
+
 public:
-    Buttons();
+    Buttons(ezButton hold_skip_input_button);
     void setup();
     void loop();
+    void check();
 };
 
 extern Buttons buttons;
