@@ -19,6 +19,7 @@ TaskScheduler::TaskScheduler()
 void TaskScheduler::setup()
 {
     Serial.begin(115200);
+    buzzer.setup();
     display.setup();
     keypad.setup();
     washing_machine_controller.setup();

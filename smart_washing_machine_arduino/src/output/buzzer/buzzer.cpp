@@ -14,11 +14,11 @@ void Buzzer::loop()
 {
     if (buzz)
     {
-        if (buzNow)
+        if (buz_now)
         {
             digitalWrite(pin, HIGH);
-            beepCount = beepCount + 1;
-            if (beepCount >= beepCountSet)
+            beep_count = beep_count + 1;
+            if (beep_count >= beep_count_set)
             {
                 buzz = false;
             }
@@ -27,7 +27,7 @@ void Buzzer::loop()
         {
             digitalWrite(pin, LOW);
         }
-        buzNow = not buzNow;
+        buz_now = not buz_now;
     }
     else
     {
@@ -35,13 +35,13 @@ void Buzzer::loop()
     }
 }
 
-bool Buzzer::set(short beepCountSetValue)
+bool Buzzer::set(short beep_count_set_value)
 {
     if (not buzz)
     {
         buzz = true;
-        beepCountSet = beepCountSetValue;
-        beepCount = 0;
+        beep_count_set = beep_count_set_value;
+        beep_count = 0;
         return true;
     }
     return false;

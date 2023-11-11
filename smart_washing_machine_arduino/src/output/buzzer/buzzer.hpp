@@ -11,17 +11,17 @@ private:
     short pin;
 
     bool buzz = false;
-    short beepCountSet = 0;
+    short beep_count_set = 0;
 
-    bool buzNow = false;
-    short beepCount = 0;
+    bool buz_now = false;
+    short beep_count = 0;
 
 public:
     Buzzer(short pin);
     void setup();
     void loop();
 
-    bool set(short beepCountSetValue);
+    bool set(short beep_count_set_value);
     void test();
     void off();
 };
