@@ -23,6 +23,7 @@ void WasherSpinningState::setup(int tmp_count_down, int tmp_spin_time, int tmp_w
   toggle_spin();
 
   Serial.println(WASHING_MACHINE_STATES_LABEL[WASHER_SPINNING_STATE] + " countdown Set: " + String(count_down));
+  Serial.println("spin_time:"+String(spin_time)+" wait_time:"+String(wait_time));
 }
 
 void WasherSpinningState::running_loop()

@@ -18,7 +18,7 @@ public:
   void print(String message);
   void set_cursor_and_print(String message, uint8_t col, uint8_t row);
 
-  void display_current_routine(short machine_routine[], short current_routine_state_pointer);
+  void display_current_routine(int machine_routine[][4], short current_routine_state_pointer);
   void display_current_state(int current_state_index);
   void display_count_down(int count_down);
 };

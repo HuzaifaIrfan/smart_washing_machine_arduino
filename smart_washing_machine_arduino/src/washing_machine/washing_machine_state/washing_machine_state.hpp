@@ -69,6 +69,12 @@ public:
   }
 
 
+  virtual void setup(int tmp_count_down, int var_1, int var_2)
+  {
+    setup(tmp_count_down);
+  }
+
+
 
   bool loop()
   {

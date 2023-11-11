@@ -20,7 +20,10 @@ public:
   using WashingMachineState::WashingMachineState;
   void setup();
   void setup(int tmp_count_down);
-  void setup(int tmp_count_down, short beep_count);
+  void setup(int tmp_count_down, int beep_count);
+  void setup(int tmp_count_down, int beep_count, int var_2);
+
+
 
   bool skip();
 };
