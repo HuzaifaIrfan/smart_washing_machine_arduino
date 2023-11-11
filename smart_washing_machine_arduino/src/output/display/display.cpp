@@ -47,7 +47,7 @@ void Display::display_count_down(int count_down){
     print(String(count_down)+"   ");
 }
 
-void Display::display_current_routine(short machine_routine[], short machine_routine_size, short current_routine_state_pointer)
+void Display::display_current_routine(short machine_routine[], short current_routine_state_pointer)
 {
 
     short state_index = machine_routine[current_routine_state_pointer];
@@ -55,9 +55,8 @@ void Display::display_current_routine(short machine_routine[], short machine_rou
     print(String(WASHING_MACHINE_STATES_LABEL[state_index]));
 
     set_cursor(0, 0);
-    print(">");
 
-    for (int i = 0; i < machine_routine_size; ++i)
+    for (int i = 0; i < 16; ++i)
     {
         short state_index = machine_routine[i];
         if (i < current_routine_state_pointer)

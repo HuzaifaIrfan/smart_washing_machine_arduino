@@ -19,6 +19,7 @@ void DryerState::running_loop()
   washing_machine->close_inlet_valves();
   washing_machine->spin_dryer();
 }
+
 void DryerState::paused_loop()
 {
   washing_machine->open_drain_valve();

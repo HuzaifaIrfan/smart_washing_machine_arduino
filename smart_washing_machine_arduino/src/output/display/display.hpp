@@ -19,7 +19,7 @@ class Display {
     void print(String message);
     void set_cursor_and_print(String message, uint8_t col, uint8_t row);
     
-    void display_current_routine(short machine_routine[], short machine_routine_size, short current_routine_state_pointer);
+    void display_current_routine(short machine_routine[], short current_routine_state_pointer);
     void display_count_down(int count_down);
 };
 

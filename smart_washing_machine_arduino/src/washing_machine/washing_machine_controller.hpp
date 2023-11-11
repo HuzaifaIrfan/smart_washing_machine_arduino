@@ -42,7 +42,7 @@ private:
 
   short current_state_index = MACHINE_WAITING_STATE;
 
-  short machine_routine[10] = {
+  short machine_routine[16] = {
       MACHINE_WAITING_STATE,
       WATER_FILLING_STATE,
       WASHER_SPINNING_STATE,
@@ -52,9 +52,15 @@ private:
       ROUTINE_END_STATE,
       MACHINE_WAITING_STATE,
       MACHINE_WAITING_STATE,
+      MACHINE_WAITING_STATE,
+      MACHINE_WAITING_STATE,
+      MACHINE_WAITING_STATE,
+      MACHINE_WAITING_STATE,
+      MACHINE_WAITING_STATE,
+      MACHINE_WAITING_STATE,
       MACHINE_WAITING_STATE};
 
-  short machine_routine_size = sizeof(machine_routine) / sizeof(machine_routine[0]);
+  // short machine_routine_size = sizeof(machine_routine) / sizeof(machine_routine[0]);
 
   short current_routine_state_pointer = 0;
 
@@ -65,6 +71,8 @@ public:
   WashingMachineController();
   void setup();
   void loop();
+
+  void reset();
 
   void run();
   void pause();

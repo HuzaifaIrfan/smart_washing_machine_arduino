@@ -8,22 +8,19 @@ WashingMachineController::WashingMachineController()
 void WashingMachineController::setup()
 {
   washing_machine.setup();
-  // for (auto &washing_machine_state : washing_machine_states) {
-  //   washing_machine_state->setup();
-  // }
-  setup_next_state();
+  reset();
 }
 
 void WashingMachineController::loop()
 {
-  if (current_routine_state_pointer < 9)
+  if (current_routine_state_pointer < 15)
   {
     if (washing_machine_states[current_state_index]->loop())
     {
       next_routine_state();
     }
   }
-  display.display_current_routine(machine_routine, machine_routine_size, current_routine_state_pointer);
+  display.display_current_routine(machine_routine, current_routine_state_pointer);
 }
 
 void WashingMachineController::next_routine_state()
@@ -33,10 +30,18 @@ void WashingMachineController::next_routine_state()
   setup_next_state();
 }
 
+void WashingMachineController::reset()
+{
+  current_routine_state_pointer = 0;
+  current_state_index = machine_routine[current_routine_state_pointer];
+  setup_next_state();
+  pause();
+}
+
 void WashingMachineController::setup_next_state()
 {
   washing_machine_states[current_state_index]->setup();
-  washing_machine_states[current_state_index]->run();
+  run();
   // Serial.println("Next State: " + String(WASHING_MACHINE_STATES_LABEL[current_state_index]));
 }
 

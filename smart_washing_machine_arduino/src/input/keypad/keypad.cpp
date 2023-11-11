@@ -1,16 +1,13 @@
 
 #include "keypad.hpp"
 
-
-Keypad::Keypad(Display *display, WashingMachineController *washing_machine_controller):display(display), washing_machine_controller(washing_machine_controller)
+Keypad::Keypad(Display *display, WashingMachineController *washing_machine_controller) : display(display), washing_machine_controller(washing_machine_controller)
 {
 }
 
 void Keypad::setup()
 {
 }
-
-
 
 // define some values used by the panel and buttons
 int lcd_key = 0;
@@ -45,52 +42,58 @@ int read_LCD_buttons()
   return btnNONE; // when all others fail, return this...
 }
 
-
-
-void Keypad::loop(){
+void Keypad::loop()
+{
   //     display->set_cursor(9, 1);        // move cursor to second line "1" and 9 spaces over
   // display->print(String(millis() / 1000)); // display seconds elapsed since power-up
 
-  display->set_cursor(9, 1);          // move to the begining of the second line
+  display->set_cursor(9, 1);    // move to the begining of the second line
   lcd_key = read_LCD_buttons(); // read the buttons
 
   switch (lcd_key) // depending on which button was pushed, we perform an action
   {
-  case btnRIGHT:
+  case btnSELECT:
   {
-    display->print("RIGHT ");
-    Serial.println("RIGHT");
+    // display->print("SELECT");
+    Serial.println("Run");
+    washing_machine_controller->run();
     break;
   }
   case btnLEFT:
   {
-    display->print("LEFT   ");
-    Serial.println("LEFT");
+    // display->print("LEFT   ");
+    Serial.println("Pause");
+    washing_machine_controller->pause();
     break;
   }
+
   case btnUP:
   {
-    display->print("UP    ");
+    // display->print("UP    ");
     Serial.println("UP");
+
     break;
   }
   case btnDOWN:
   {
-    display->print("DOWN  ");
+    // display->print("DOWN  ");
     Serial.println("DOWN");
+
     break;
   }
-  case btnSELECT:
+  case btnRIGHT:
   {
-    display->print("SELECT");
-    Serial.println("SELECT");
+    // display->print("RIGHT ");
+    Serial.println("Reset");
+    washing_machine_controller->reset();
     break;
   }
-  // case btnNONE:
-  // {
-  //   display->print("NONE  ");
-  //   break;
-  // }
+
+    // case btnNONE:
+    // {
+    //   display->print("NONE  ");
+    //   break;
+    // }
   }
 }
 
