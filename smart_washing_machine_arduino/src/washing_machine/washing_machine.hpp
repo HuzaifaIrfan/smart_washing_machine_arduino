@@ -44,7 +44,7 @@ public:
   // Spinner Methods
   void stop_spinner();
   void spin_spinner_clockwise();
-  void spin_spinner_nti_clockwise();
+  void spin_spinner_anti_clockwise();
 
   // Dryer Methods
   bool open_dryer_drain();

@@ -71,7 +71,7 @@ void WashingMachine::spin_spinner_clockwise()
     spinner->spin_clockwise();
 }
 
-void WashingMachine::spin_spinner_nti_clockwise()
+void WashingMachine::spin_spinner_anti_clockwise()
 {
     spinner->spin_anti_clockwise();
 }

@@ -15,6 +15,22 @@ private:
   int DEFAULT_COUNTDOWN = 300;
   int MINIMUM_COUNTDOWN = 30;
 
+  short MAXIMUM_SPIN_TIME = 5;
+  short DEFAULT_SPIN_TIME = 5;
+  short MINIMUM_SPIN_TIME = 5;
+
+  short MAXIMUM_WAIT_TIME = 2;
+  short DEFAULT_WAIT_TIME = 2;
+  short MINIMUM_WAIT_TIME = 2;
+
+  short spin_time = DEFAULT_SPIN_TIME;
+  short wait_time = DEFAULT_WAIT_TIME;
+
+  bool clockwise_spin_now = false;
+  short spin_count_down = 0;
+
+  void spin_loop();
+  void toggle_spin();
 
 public:
   using WashingMachineState::WashingMachineState;

@@ -40,19 +40,19 @@ public:
     hold_state = true;
   }
 
-  int validate(short tmp_count_down, int maximum_count_down, int minimum_count_down)
+  int validate(short tmp_value, int maximum_value, int minimum_value)
   {
-    if (tmp_count_down > maximum_count_down)
+    if (tmp_value > maximum_value)
     {
-      return maximum_count_down;
+      return maximum_value;
     }
 
-    if (tmp_count_down < minimum_count_down)
+    if (tmp_value < minimum_value)
     {
-      return minimum_count_down;
+      return minimum_value;
     }
 
-    return tmp_count_down;
+    return tmp_value;
   }
 
   virtual void setup()
