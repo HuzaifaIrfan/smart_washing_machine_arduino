@@ -11,6 +11,7 @@ class Display {
     Display();
     void setup();
     void loop();
+    void init();
     void set_cursor( uint8_t col, uint8_t row);
     void print(String message);
     void set_cursor_and_print(String message, uint8_t col, uint8_t row);

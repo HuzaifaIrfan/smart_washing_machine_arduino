@@ -6,13 +6,16 @@
 
 #include "GPIO_CONFIG.hpp"
 
+#include "washing_machine/washing_machine_controller.hpp"
+
 class Buttons
 {
 private:
     ezButton hold_skip_input_button;
+    WashingMachineController washing_machine_controller;
 
 public:
-    Buttons(ezButton hold_skip_input_button);
+    Buttons(ezButton hold_skip_input_button, WashingMachineController washing_machine_controller);
     void setup();
     void loop();
     void check();

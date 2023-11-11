@@ -1,7 +1,7 @@
 
 #include "buttons.hpp"
 
-Buttons::Buttons(ezButton hold_skip_input_button) : hold_skip_input_button(hold_skip_input_button)
+Buttons::Buttons(ezButton hold_skip_input_button, WashingMachineController washing_machine_controller) : hold_skip_input_button(hold_skip_input_button), washing_machine_controller(washing_machine_controller)
 {
 }
 
@@ -31,4 +31,4 @@ void Buttons::check()
 
 ezButton hold_skip_input_button(HOLD_SKIP_INPUT_PIN);
 
-Buttons buttons(hold_skip_input_button);
+Buttons buttons(hold_skip_input_button, washing_machine_controller);

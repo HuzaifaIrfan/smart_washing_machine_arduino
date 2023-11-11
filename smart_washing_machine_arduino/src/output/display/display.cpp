@@ -3,16 +3,20 @@
 
 LiquidCrystal lcd(LCD_RS_PIN, LCD_EN_PIN, LCD_D0_PIN, LCD_D1_PIN, LCD_D2_PIN, LCD_D3_PIN);
 
-
-
 Display::Display()
 {
 }
 
 void Display::setup()
 {
+    init();
+    set_cursor_and_print("Smart Washer", 0, 0);
+    set_cursor_and_print("Huzaifa Irfan", 0, 1);
+}
+
+void Display::init()
+{
     lcd.begin(16, 2);
-    set_cursor_and_print("Press the button", 0, 0);
 }
 
 void Display::loop()
