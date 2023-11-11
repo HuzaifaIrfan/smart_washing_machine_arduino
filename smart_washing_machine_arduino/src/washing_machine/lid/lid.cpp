@@ -1,10 +1,9 @@
 
 #include "lid.hpp"
 
+volatile bool Lid::lid_open_or_vibration_interrupted = false;
 
-volatile bool Lid::lid_open_or_vibration_interrupted=false;
-
-Lid::Lid(short pin):pin(pin)
+Lid::Lid(short pin) : pin(pin)
 {
 }
 
@@ -19,7 +18,19 @@ void Lid::lid_open_or_dryer_vibration_switch_interrupt_service_routine()
   lid_open_or_vibration_interrupted = true;
 }
 
-
 void Lid::loop()
 {
+}
+
+void Lid::close()
+{
+  if (digitalRead(pin) == 1)
+  {
+    lid_open_or_vibration_interrupted = false;
+  }
+}
+
+bool Lid::is_open()
+{
+  return lid_open_or_vibration_interrupted;
 }

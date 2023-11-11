@@ -1,10 +1,10 @@
 
-#ifndef _MachineOffState_H_
-#define _MachineOffState_H_
+#ifndef _ClothesSoakingState_H_
+#define _ClothesSoakingState_H_
 
 #include "washing_machine_state.hpp"
 
-class MachineOffState : public WashingMachineState {
+class ClothesSoakingState : public WashingMachineState {
 
 private:
   void running_loop();

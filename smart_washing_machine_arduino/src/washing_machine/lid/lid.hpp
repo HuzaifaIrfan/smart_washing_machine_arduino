@@ -14,6 +14,9 @@ public:
   void setup();
   void loop();
   static void lid_open_or_dryer_vibration_switch_interrupt_service_routine();
+  
+  void close();
+  bool is_open();
 };
 
 #endif

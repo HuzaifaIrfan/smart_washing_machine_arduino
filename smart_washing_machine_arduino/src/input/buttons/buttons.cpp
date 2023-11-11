@@ -7,7 +7,7 @@ Buttons::Buttons(ezButton hold_skip_input_button, WashingMachineController washi
 
 void Buttons::setup()
 {
-    hold_skip_input_button.setDebounceTime(100);
+    hold_skip_input_button.setDebounceTime(500);
 }
 
 void Buttons::loop()
@@ -21,11 +21,11 @@ void Buttons::check()
 
     if (hold_skip_input_button.isPressed())
     {
-
+        display.set_cursor_and_print("H1", 14, 0);
     }
     if (hold_skip_input_button.isReleased())
     {
-        
+         display.set_cursor_and_print("H0", 14, 0);
     }
 }
 

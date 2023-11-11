@@ -32,7 +32,8 @@ void TaskScheduler::setup()
       watch_dog.reset(); });
 
     taskManager.scheduleFixedRate(100, []
-                                  { keypad.loop(); });
+                                  { keypad.loop(); 
+                                  buttons.loop(); });
 
     delay(2000);
     display.init();
