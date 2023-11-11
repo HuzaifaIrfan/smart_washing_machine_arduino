@@ -29,7 +29,7 @@ public:
   explicit WashingMachineState(WashingMachine *washing_machine)
       : washing_machine(washing_machine) {}
 
-  void run()
+  virtual void run()
   {
     running_state = true;
     hold_state = false;

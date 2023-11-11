@@ -19,6 +19,7 @@ public:
   using WashingMachineState::WashingMachineState;
   void setup();
   void setup(int tmp_count_down);
+  void run();
 };
 
 #endif

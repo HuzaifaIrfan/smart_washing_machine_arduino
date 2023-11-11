@@ -18,32 +18,31 @@ TaskScheduler::TaskScheduler()
 
 void TaskScheduler::setup()
 {
-    Serial.begin(115200);
-    buzzer.setup();
-    display.setup();
-    keypad.setup();
-    washing_machine_controller.setup();
+  Serial.begin(115200);
+  buzzer.setup();
+  display.setup();
+  keypad.setup();
+  washing_machine_controller.setup();
 
-    taskManager.scheduleFixedRate(200, []
-                                  { buzzer.loop(); });
+  taskManager.scheduleFixedRate(200, []
+                                { buzzer.loop(); });
 
-    taskManager.scheduleFixedRate(1000, []
-                                  {
-      washing_machine_controller.loop();
-      watch_dog.reset(); });
+  taskManager.scheduleFixedRate(1000, []
+                                { washing_machine_controller.loop();
+                                 watch_dog.reset(); });
 
-    taskManager.scheduleFixedRate(100, []
-                                  { keypad.loop(); 
+  taskManager.scheduleFixedRate(100, []
+                                { keypad.loop(); 
                                   buttons.loop(); });
 
-    delay(2000);
-    display.init();
-    watch_dog.setup();
+  delay(2000);
+  display.init();
+  watch_dog.setup();
 }
 
 void TaskScheduler::loop()
 {
-    taskManager.runLoop();
+  taskManager.runLoop();
 }
 
 TaskScheduler task_scheduler;

@@ -26,6 +26,17 @@ void WashingMachine::stop()
     drain_valve->close();
 }
 
+// Lid Methods
+void WashingMachine::close_lid()
+{
+    lid->close();
+}
+
+bool WashingMachine::is_lid_closed()
+{
+    return lid->is_closed();
+}
+
 // Inlet Valve Methods
 
 void WashingMachine::open_inlet_valves()
@@ -96,7 +107,5 @@ bool WashingMachine::close_drain_and_brake_dryer()
 {
     return dryer->close_drain_and_brake();
 }
-
-
 
 WashingMachine washing_machine(&inlet_valves, &drain_valve, &spinner, &dryer, &lid, &water_level_sensor);

@@ -15,6 +15,10 @@ void DryerState::setup(int tmp_count_down)
 
 void DryerState::running_loop()
 {
+  if (not washing_machine->is_lid_closed())
+  {
+    pause();
+  }
   washing_machine->open_drain_valve();
   washing_machine->close_inlet_valves();
   washing_machine->spin_dryer();
@@ -25,4 +29,18 @@ void DryerState::paused_loop()
   washing_machine->open_drain_valve();
   washing_machine->close_inlet_valves();
   washing_machine->stop_dryer();
+}
+
+void DryerState::run()
+{
+  washing_machine->close_lid();
+  if (washing_machine->is_lid_closed())
+  {
+    running_state = true;
+    hold_state = false;
+  }
+  else
+  {
+    pause();
+  }
 }

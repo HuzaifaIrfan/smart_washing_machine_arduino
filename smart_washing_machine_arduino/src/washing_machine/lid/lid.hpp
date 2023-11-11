@@ -18,7 +18,7 @@ public:
   static void lid_open_or_dryer_vibration_switch_interrupt_service_routine();
   
   void close();
-  bool is_open();
+  bool is_closed();
 };
 
 extern Lid lid;

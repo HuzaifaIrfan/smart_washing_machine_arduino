@@ -20,6 +20,11 @@ void Lid::lid_open_or_dryer_vibration_switch_interrupt_service_routine()
 
 void Lid::loop()
 {
+  if (digitalRead(pin) == 0)
+  {
+    lid_open_or_vibration_interrupted = true;
+  }
+  // Serial.println(lid_open_or_vibration_interrupted);
 }
 
 void Lid::close()
@@ -30,10 +35,10 @@ void Lid::close()
   }
 }
 
-bool Lid::is_open()
+bool Lid::is_closed()
 {
-  return lid_open_or_vibration_interrupted;
+  loop();
+  return not lid_open_or_vibration_interrupted;
 }
-
 
 Lid lid(LID_INPUT_PIN);

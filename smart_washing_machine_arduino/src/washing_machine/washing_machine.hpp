@@ -31,6 +31,10 @@ public:
   void loop();
   void stop();
 
+  // Lid Methods
+  void close_lid();
+  bool is_lid_closed();
+
   // Inlet Valve Methods
   void open_inlet_valves();
   void open_hot_inlet_valve();
@@ -51,7 +55,6 @@ public:
   bool spin_dryer();
   void stop_dryer();
   bool close_drain_and_brake_dryer();
-  
 };
 
 extern WashingMachine washing_machine;
