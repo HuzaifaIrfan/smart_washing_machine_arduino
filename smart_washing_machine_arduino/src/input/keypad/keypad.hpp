@@ -3,8 +3,10 @@
 
 #include <Arduino.h>
 
-#include "display/display.hpp"
+#include "output/display/display.hpp"
 #include "washing_machine/washing_machine_controller.hpp"
+
+#include "GPIO_CONFIG.hpp"
 
 class Keypad {
   private:

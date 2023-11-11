@@ -4,6 +4,7 @@
 #include <Arduino.h>
 #include <LiquidCrystal.h>
 
+#include "GPIO_CONFIG.hpp"
 
 class Display {
   public:

@@ -3,7 +3,7 @@
 
 #include <Arduino.h>
 
-#include "display/display.hpp"
+#include "output/display/display.hpp"
 
 
 #include "washing_machine/washing_machine.hpp"

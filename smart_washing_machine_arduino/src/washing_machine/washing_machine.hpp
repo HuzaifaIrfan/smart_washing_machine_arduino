@@ -3,7 +3,7 @@
 
 #include <Arduino.h>
 
-#include "washing_machine/GPIO_CONFIG.hpp"
+#include "GPIO_CONFIG.hpp"
 
 #include "washing_machine/valve/inlet_valves.hpp"
 #include "washing_machine/valve/drain_valve.hpp"

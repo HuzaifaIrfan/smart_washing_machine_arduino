@@ -4,8 +4,12 @@
 
 #include "TaskManagerIO.h"
 
+#include "output/buzzer/buzzer.hpp"
+
 #include "washing_machine/washing_machine_controller.hpp"
-#include "keypad/keypad.hpp"
+
+#include "input/buttons/buttons.hpp"
+#include "input/keypad/keypad.hpp"
 
 
 
@@ -15,7 +19,7 @@ TaskScheduler::TaskScheduler()
 
 void TaskScheduler::setup()
 {
-    Serial.begin(9600);
+    Serial.begin(115200);
     display.setup();
     keypad.setup();
     washing_machine_controller.setup();

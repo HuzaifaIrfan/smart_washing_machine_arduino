@@ -25,7 +25,7 @@ int adc_key_in = 0;
 // read the buttons
 int read_LCD_buttons()
 {
-  adc_key_in = analogRead(0); // read the value from the sensor
+  adc_key_in = analogRead(KEYPAD_SHIELD_INPUT_PIN); // read the value from the sensor
   Serial.println(adc_key_in);
   // my buttons when read are centered at these valies: 0, 144, 329, 504, 741
   // we add approx 50 to those values and check to see if we are close
