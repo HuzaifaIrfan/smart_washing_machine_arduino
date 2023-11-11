@@ -3,6 +3,8 @@
 
 #include <Arduino.h>
 
+#include "GPIO_CONFIG.hpp"
+
 class Lid
 {
 private:
@@ -18,5 +20,7 @@ public:
   void close();
   bool is_open();
 };
+
+extern Lid lid;
 
 #endif

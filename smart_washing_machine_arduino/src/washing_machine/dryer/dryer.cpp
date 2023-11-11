@@ -1,7 +1,7 @@
 
 #include "dryer.hpp"
 
-Dryer::Dryer(DrainValve drain_valve, Spinner spinner) : drain_valve(drain_valve), spinner(spinner)
+Dryer::Dryer(DrainValve *drain_valve, Spinner *spinner) : drain_valve(drain_valve), spinner(spinner)
 {
 }
 
@@ -16,9 +16,9 @@ void Dryer::loop()
 
 bool Dryer::open_drain()
 {
-    if (spinner.is_off())
+    if (spinner->is_off())
     {
-        drain_valve.open();
+        drain_valve->open();
         return true;
     }
     return false;
@@ -26,9 +26,9 @@ bool Dryer::open_drain()
 
 bool Dryer::spin()
 {
-    if (drain_valve.is_open())
+    if (drain_valve->is_open())
     {
-        spinner.spin_dryer();
+        spinner->spin_dryer();
         return true;
     }
     return false;
@@ -36,15 +36,18 @@ bool Dryer::spin()
 
 void Dryer::stop()
 {
-    spinner.stop();
+    spinner->stop();
 }
 
 bool Dryer::close_drain_and_brake()
 {
-    if (spinner.is_off())
+    if (spinner->is_off())
     {
-        drain_valve.close();
+        drain_valve->close();
         return true;
     }
     return false;
 }
+
+
+Dryer dryer(&drain_valve, &spinner);

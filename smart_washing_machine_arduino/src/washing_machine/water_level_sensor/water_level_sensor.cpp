@@ -13,3 +13,6 @@ void WaterLevelSensor::setup()
 void WaterLevelSensor::loop()
 {
 }
+
+
+WaterLevelSensor water_level_sensor;

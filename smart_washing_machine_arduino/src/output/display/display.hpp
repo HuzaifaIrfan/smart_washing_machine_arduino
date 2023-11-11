@@ -6,6 +6,7 @@
 
 #include "GPIO_CONFIG.hpp"
 
+
 class Display {
   public:
     Display();
@@ -15,6 +16,7 @@ class Display {
     void set_cursor( uint8_t col, uint8_t row);
     void print(String message);
     void set_cursor_and_print(String message, uint8_t col, uint8_t row);
+    void display_current_routine(short machine_routine[], short machine_routine_size, short current_routine_state_pointer);
 };
 
 extern Display display;

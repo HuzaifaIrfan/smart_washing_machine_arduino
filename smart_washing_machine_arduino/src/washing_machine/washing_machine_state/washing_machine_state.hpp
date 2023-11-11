@@ -7,21 +7,10 @@
 
 #include "washing_machine/washing_machine.hpp"
 
-enum WASHING_MACHINE_STATES
-{
-  MACHINE_WAITING_STATE,
-  WATER_FILLING_STATE,
-  WASHER_SPINNING_STATE,
-  CLOTHES_SOAKING_STATE,
-  WATER_DRAINING_STATE,
-  DRYER_STATE,
-  ROUTINE_END_STATE
-};
-
 class WashingMachineState
 {
 protected:
-  WashingMachine washing_machine;
+  WashingMachine *washing_machine = nullptr;
   bool running_state = false;
   int count_down = 0;
 
@@ -33,7 +22,7 @@ protected:
   virtual void paused_loop(){};
 
 public:
-  explicit WashingMachineState(WashingMachine washing_machine)
+  explicit WashingMachineState(WashingMachine *washing_machine)
       : washing_machine(washing_machine) {}
 
   void run()
@@ -87,6 +76,7 @@ public:
   {
     if (count_down <= 0)
     {
+      pause();
       return true;
     }
     return false;

@@ -3,6 +3,8 @@
 
 #include <Arduino.h>
 
+#include "GPIO_CONFIG.hpp"
+
 #include "washing_machine/spinner/power_relay/power_relay.hpp"
 
 enum SPINNER_STATES
@@ -15,12 +17,12 @@ enum SPINNER_STATES
 class Spinner
 {
 private:
-  PowerRelay clockwise_spinner_power_relay;
-  PowerRelay anticlockwise_spinner_power_relay;
+  PowerRelay *clockwise_spinner_power_relay = nullptr;
+  PowerRelay *anticlockwise_spinner_power_relay = nullptr;
   short spin_state = SPINNER_OFF_STATE;
 
 public:
-  Spinner(PowerRelay clockwise_spinner_power_relay, PowerRelay anticlockwise_spinner_power_relay);
+  Spinner(PowerRelay *clockwise_spinner_power_relay, PowerRelay *anticlockwise_spinner_power_relay);
   void setup();
   void loop();
   void stop();
@@ -34,5 +36,7 @@ public:
   bool is_spin_cw();
   bool is_spin_acw();
 };
+
+extern Spinner spinner;
 
 #endif

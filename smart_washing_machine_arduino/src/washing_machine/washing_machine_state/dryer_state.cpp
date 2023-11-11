@@ -19,5 +19,5 @@ void DryerState::running_loop()
 }
 void DryerState::paused_loop()
 {
-        washing_machine.stop_dryer();
+        washing_machine->stop_dryer();
 }

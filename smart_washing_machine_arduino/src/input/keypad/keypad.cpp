@@ -2,7 +2,7 @@
 #include "keypad.hpp"
 
 
-Keypad::Keypad(Display display, WashingMachineController washing_machine_controller):display(display), washing_machine_controller(washing_machine_controller)
+Keypad::Keypad(Display *display, WashingMachineController *washing_machine_controller):display(display), washing_machine_controller(washing_machine_controller)
 {
 }
 
@@ -48,45 +48,45 @@ int read_LCD_buttons()
 
 
 void Keypad::loop(){
-      display.set_cursor(9, 1);        // move cursor to second line "1" and 9 spaces over
-  display.print(String(millis() / 1000)); // display seconds elapsed since power-up
+      display->set_cursor(9, 1);        // move cursor to second line "1" and 9 spaces over
+  display->print(String(millis() / 1000)); // display seconds elapsed since power-up
 
-  display.set_cursor(0, 1);          // move to the begining of the second line
+  display->set_cursor(0, 1);          // move to the begining of the second line
   lcd_key = read_LCD_buttons(); // read the buttons
 
   switch (lcd_key) // depending on which button was pushed, we perform an action
   {
   case btnRIGHT:
   {
-    display.print("RIGHT ");
+    display->print("RIGHT ");
     break;
   }
   case btnLEFT:
   {
-    display.print("LEFT   ");
+    display->print("LEFT   ");
     break;
   }
   case btnUP:
   {
-    display.print("UP    ");
+    display->print("UP    ");
     break;
   }
   case btnDOWN:
   {
-    display.print("DOWN  ");
+    display->print("DOWN  ");
     break;
   }
   case btnSELECT:
   {
-    display.print("SELECT");
+    display->print("SELECT");
     break;
   }
   // case btnNONE:
   // {
-  //   display.print("NONE  ");
+  //   display->print("NONE  ");
   //   break;
   // }
   }
 }
 
-Keypad keypad(display, washing_machine_controller);
+Keypad keypad(&display, &washing_machine_controller);

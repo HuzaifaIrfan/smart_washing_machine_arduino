@@ -18,7 +18,7 @@ void ClothesSoakingState::setup(int tmp_count_down)
 
 void ClothesSoakingState::running_loop()
 {
-    washing_machine.stop();
+    washing_machine->stop();
 }
 
 void ClothesSoakingState::paused_loop()

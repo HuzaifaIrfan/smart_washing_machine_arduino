@@ -16,9 +16,9 @@ void WaterFillingState::setup(int tmp_count_down)
 
 void WaterFillingState::running_loop()
 {
-    washing_machine.open_inlet_valves();
+    washing_machine->open_inlet_valves();
 }
 void WaterFillingState::paused_loop()
 {
-    washing_machine.stop();
+    washing_machine->stop();
 }

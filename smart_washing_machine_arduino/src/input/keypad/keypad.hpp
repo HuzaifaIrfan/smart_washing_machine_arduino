@@ -10,10 +10,10 @@
 
 class Keypad {
   private:
-    Display display;
-    WashingMachineController washing_machine_controller;
+    Display *display = nullptr;
+    WashingMachineController *washing_machine_controller = nullptr;
   public:
-    Keypad(Display display, WashingMachineController washing_machine_controller);
+    Keypad(Display *display, WashingMachineController *washing_machine_controller);
     void setup();
     void loop();
 };

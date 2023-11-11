@@ -17,16 +17,16 @@
 class WashingMachine
 {
 private:
-  InletValves inlet_valves;
-  DrainValve drain_valve;
-  Spinner spinner;
-  Dryer dryer;
+  InletValves *inlet_valves = nullptr;
+  DrainValve *drain_valve = nullptr;
+  Spinner *spinner = nullptr;
+  Dryer *dryer = nullptr;
 
-  Lid lid;
-  WaterLevelSensor water_level_sensor;
+  Lid *lid = nullptr;
+  WaterLevelSensor *water_level_sensor = nullptr;
 
 public:
-  WashingMachine(InletValves inlet_valves, DrainValve drain_valve, Spinner spinner, Dryer dryer, Lid lid, WaterLevelSensor water_level_sensor);
+  WashingMachine(InletValves *inlet_valves, DrainValve *drain_valve, Spinner *spinner, Dryer *dryer, Lid *lid, WaterLevelSensor *water_level_sensor);
   void setup();
   void loop();
   void stop();

@@ -34,3 +34,6 @@ bool Lid::is_open()
 {
   return lid_open_or_vibration_interrupted;
 }
+
+
+Lid lid(LID_INPUT_PIN);

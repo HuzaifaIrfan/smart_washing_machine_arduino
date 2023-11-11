@@ -15,7 +15,7 @@ void MachineWaitingState::setup(int tmp_count_down)
 
 void MachineWaitingState::running_loop()
 {
-    washing_machine.stop();
+    washing_machine->stop();
 }
 
 void MachineWaitingState::paused_loop()

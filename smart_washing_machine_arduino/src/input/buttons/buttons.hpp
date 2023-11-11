@@ -11,11 +11,11 @@
 class Buttons
 {
 private:
-    ezButton hold_skip_input_button;
-    WashingMachineController washing_machine_controller;
+    ezButton *hold_skip_input_button = nullptr;
+    WashingMachineController *washing_machine_controller = nullptr;
 
 public:
-    Buttons(ezButton hold_skip_input_button, WashingMachineController washing_machine_controller);
+    Buttons(ezButton *hold_skip_input_button, WashingMachineController *washing_machine_controller);
     void setup();
     void loop();
     void check();

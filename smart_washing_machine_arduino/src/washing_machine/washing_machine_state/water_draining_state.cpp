@@ -14,9 +14,9 @@ void WaterDrainingState::setup(int tmp_count_down)
 
 void WaterDrainingState::running_loop()
 {
-        washing_machine.open_drain_valve();
+        washing_machine->open_drain_valve();
 }
 void WaterDrainingState::paused_loop()
 {
-        washing_machine.stop();
+        washing_machine->stop();
 }

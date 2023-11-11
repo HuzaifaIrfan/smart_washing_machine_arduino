@@ -22,7 +22,7 @@ void RoutineEndState::setup(int tmp_count_down, short beep_count)
 
 void RoutineEndState::running_loop()
 {
-    washing_machine.open_drain_valve();
+    washing_machine->open_drain_valve();
 }
 
 void RoutineEndState::paused_loop()

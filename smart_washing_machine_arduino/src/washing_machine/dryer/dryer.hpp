@@ -9,11 +9,11 @@
 class Dryer
 {
 private:
-  DrainValve drain_valve;
-  Spinner spinner;
+  DrainValve *drain_valve = nullptr;
+  Spinner *spinner = nullptr;
 
 public:
-  Dryer(DrainValve drain_valve, Spinner spinner);
+  Dryer(DrainValve *drain_valve, Spinner *spinner);
   void setup();
   void loop();
   bool open_drain();
@@ -21,5 +21,7 @@ public:
   void stop();
   bool close_drain_and_brake();
 };
+
+extern Dryer dryer;
 
 #endif
