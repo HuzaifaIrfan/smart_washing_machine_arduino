@@ -15,6 +15,7 @@ class WashingMachineState
 protected:
   WashingMachine *washing_machine = nullptr;
   bool running_state = false;
+  bool hold_state = false;
   int count_down = 0;
 
   int DEFAULT_COUNTDOWN = 5;
@@ -31,10 +32,12 @@ public:
   void run()
   {
     running_state = true;
+    hold_state = false;
   }
   void pause()
   {
     running_state = false;
+    hold_state = true;
   }
 
   int validate(short tmp_count_down, int maximum_count_down, int minimum_count_down)
@@ -68,7 +71,9 @@ public:
     if (running_state)
     {
       running_loop();
-      count_down = count_down - 1;
+      if(not hold_state){
+        count_down = count_down - 1;
+      }
       display.display_count_down(count_down);
       Serial.println(count_down);
     }
@@ -91,12 +96,13 @@ public:
 
   void hold()
   {
-    running_loop();
+    hold_state = true;
   }
 
   virtual bool skip()
   {
     count_down = 0;
+    hold_state = false;
     return true;
   }
 };

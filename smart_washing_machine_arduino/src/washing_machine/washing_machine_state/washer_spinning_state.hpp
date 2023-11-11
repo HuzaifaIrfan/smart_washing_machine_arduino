@@ -15,6 +15,7 @@ private:
   int DEFAULT_COUNTDOWN = 300;
   int MINIMUM_COUNTDOWN = 30;
 
+
 public:
   using WashingMachineState::WashingMachineState;
   void setup();

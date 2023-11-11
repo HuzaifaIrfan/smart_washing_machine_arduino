@@ -11,10 +11,10 @@ char WASHING_MACHINE_STATES_CHAR[7] = {
     'E'};
 
 String WASHING_MACHINE_STATES_LABEL[7] = {
-    "Waiting",
-    "Filling",
-    "Washing",
-    "Soaking",
+    "Waiting ",
+    "Filling ",
+    "Washing ",
+    "Soaking ",
     "Draining",
-    "Drying",
-    "End"};
+    "Drying  ",
+    "Ending  "};

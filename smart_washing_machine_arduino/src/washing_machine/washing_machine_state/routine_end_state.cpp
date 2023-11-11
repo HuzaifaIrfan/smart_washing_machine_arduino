@@ -8,22 +8,22 @@ void RoutineEndState::setup()
 }
 
 void RoutineEndState::setup(int tmp_count_down)
-  {
+{
     setup(tmp_count_down, 10);
-  }
-
+}
 
 void RoutineEndState::setup(int tmp_count_down, short beep_count)
 {
     buzzer.set(beep_count);
     count_down = validate(tmp_count_down, MAXIMUM_COUNTDOWN, MINIMUM_COUNTDOWN);
-Serial.println(WASHING_MACHINE_STATES_LABEL[ROUTINE_END_STATE]+" countdown Set: "+ String(count_down));
+    Serial.println(WASHING_MACHINE_STATES_LABEL[ROUTINE_END_STATE] + " countdown Set: " + String(count_down));
 }
-
 
 void RoutineEndState::running_loop()
 {
     washing_machine->open_drain_valve();
+    washing_machine->close_inlet_valves();
+    washing_machine->stop_spinner();
 }
 
 void RoutineEndState::paused_loop()
@@ -33,5 +33,6 @@ void RoutineEndState::paused_loop()
 
 bool RoutineEndState::skip()
 {
+    hold_state = false;
     return false;
 }

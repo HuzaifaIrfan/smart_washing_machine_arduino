@@ -19,8 +19,6 @@
 #include "washing_machine_state/dryer_state.hpp"
 #include "washing_machine_state/routine_end_state.hpp"
 
-
-
 class WashingMachineController
 {
 
@@ -60,7 +58,6 @@ private:
 
   short current_routine_state_pointer = 0;
 
-  
   void next_routine_state();
   void setup_next_state();
 
@@ -68,6 +65,11 @@ public:
   WashingMachineController();
   void setup();
   void loop();
+
+  void run();
+  void pause();
+  void hold();
+  void skip();
 };
 
 extern WashingMachineController washing_machine_controller;

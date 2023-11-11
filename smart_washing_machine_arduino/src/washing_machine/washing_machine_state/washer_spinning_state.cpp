@@ -15,6 +15,8 @@ Serial.println(WASHING_MACHINE_STATES_LABEL[WASHER_SPINNING_STATE]+" countdown S
 
 void WasherSpinningState::running_loop()
 {
+    washing_machine->close_drain_valve();
+      washing_machine->close_inlet_valves();
 
 }
 
