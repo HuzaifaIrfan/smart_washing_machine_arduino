@@ -9,10 +9,16 @@ void WasherSpinningState::setup()
 
 void WasherSpinningState::setup(int tmp_count_down)
 {
+
+  setup(tmp_count_down, DEFAULT_SPIN_TIME, DEFAULT_WAIT_TIME);
+}
+
+void WasherSpinningState::setup(int tmp_count_down, int tmp_spin_time, int tmp_wait_time)
+{
   count_down = validate(tmp_count_down, MAXIMUM_COUNTDOWN, MINIMUM_COUNTDOWN);
 
-  spin_time = validate(DEFAULT_SPIN_TIME, MAXIMUM_SPIN_TIME, MINIMUM_SPIN_TIME);
-  wait_time = validate(DEFAULT_WAIT_TIME, MAXIMUM_WAIT_TIME, MINIMUM_WAIT_TIME);
+  spin_time = validate(tmp_spin_time, MAXIMUM_SPIN_TIME, MINIMUM_SPIN_TIME);
+  wait_time = validate(tmp_wait_time, MAXIMUM_WAIT_TIME, MINIMUM_WAIT_TIME);
 
   toggle_spin();
 

@@ -16,22 +16,21 @@ void WashingMachineController::setup()
 
 void WashingMachineController::loop()
 {
-
-  if (washing_machine_states[current_state_index]->loop())
+  if (current_routine_state_pointer < 9)
   {
-    next_routine_state();
+    if (washing_machine_states[current_state_index]->loop())
+    {
+      next_routine_state();
+    }
   }
   display.display_current_routine(machine_routine, machine_routine_size, current_routine_state_pointer);
 }
 
 void WashingMachineController::next_routine_state()
 {
-  if (current_routine_state_pointer < 10)
-  {
-    current_routine_state_pointer = current_routine_state_pointer + 1;
-    current_state_index = machine_routine[current_routine_state_pointer];
-    setup_next_state();
-  }
+  current_routine_state_pointer = current_routine_state_pointer + 1;
+  current_state_index = machine_routine[current_routine_state_pointer];
+  setup_next_state();
 }
 
 void WashingMachineController::setup_next_state()

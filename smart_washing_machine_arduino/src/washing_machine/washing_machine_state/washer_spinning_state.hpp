@@ -36,6 +36,7 @@ public:
   using WashingMachineState::WashingMachineState;
   void setup();
   void setup(int tmp_count_down);
+  void setup(int tmp_count_down, int tmp_spin_time, int tmp_wait_time);
 };
 
 #endif
