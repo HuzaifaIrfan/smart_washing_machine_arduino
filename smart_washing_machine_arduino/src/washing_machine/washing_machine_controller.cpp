@@ -21,6 +21,7 @@ void WashingMachineController::loop()
     }
   }
   display.display_current_routine(machine_routine, current_routine_state_pointer);
+  display.display_current_state(current_state_index);
 }
 
 void WashingMachineController::next_routine_state()
@@ -28,6 +29,7 @@ void WashingMachineController::next_routine_state()
   current_routine_state_pointer = current_routine_state_pointer + 1;
   current_state_index = machine_routine[current_routine_state_pointer];
   setup_next_state();
+  run();
 }
 
 void WashingMachineController::reset()
@@ -41,8 +43,35 @@ void WashingMachineController::reset()
 void WashingMachineController::setup_next_state()
 {
   washing_machine_states[current_state_index]->setup();
-  run();
   // Serial.println("Next State: " + String(WASHING_MACHINE_STATES_LABEL[current_state_index]));
+}
+
+void WashingMachineController::increase_current_state_index()
+{
+  if (is_paused())
+  {
+    current_routine_state_pointer = 14;
+    current_state_index = current_state_index + 1;
+    if (current_state_index > DRYER_STATE)
+    {
+      current_state_index = DRYER_STATE;
+    }
+    setup_next_state();
+  }
+}
+
+void WashingMachineController::decrease_current_state_index()
+{
+  if (is_paused())
+  {
+    current_routine_state_pointer = 14;
+    current_state_index = current_state_index - 1;
+    if (current_state_index < WATER_FILLING_STATE)
+    {
+      current_state_index = WATER_FILLING_STATE;
+    }
+    setup_next_state();
+  }
 }
 
 void WashingMachineController::run()
@@ -53,6 +82,11 @@ void WashingMachineController::run()
 void WashingMachineController::pause()
 {
   washing_machine_states[current_state_index]->pause();
+}
+
+bool WashingMachineController::is_paused()
+{
+  return washing_machine_states[current_state_index]->is_paused();
 }
 
 void WashingMachineController::hold()

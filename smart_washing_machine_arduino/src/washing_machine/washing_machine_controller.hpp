@@ -73,9 +73,12 @@ public:
   void loop();
 
   void reset();
+  void increase_current_state_index();
+  void decrease_current_state_index();
 
   void run();
   void pause();
+  bool is_paused();
   void hold();
   void skip();
 };

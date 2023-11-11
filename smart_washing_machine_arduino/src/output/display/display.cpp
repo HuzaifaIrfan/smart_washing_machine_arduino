@@ -47,12 +47,13 @@ void Display::display_count_down(int count_down){
     print(String(count_down)+"   ");
 }
 
+void Display::display_current_state(int current_state_index){
+    set_cursor(8, 1);
+    print(String(WASHING_MACHINE_STATES_LABEL[current_state_index]));
+}
+
 void Display::display_current_routine(short machine_routine[], short current_routine_state_pointer)
 {
-
-    short state_index = machine_routine[current_routine_state_pointer];
-    set_cursor(8, 1);
-    print(String(WASHING_MACHINE_STATES_LABEL[state_index]));
 
     set_cursor(0, 0);
 

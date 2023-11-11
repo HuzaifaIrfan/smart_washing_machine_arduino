@@ -40,6 +40,10 @@ public:
     hold_state = true;
   }
 
+  bool is_paused(){
+    return not running_state;
+  }
+
   int validate(short tmp_value, int maximum_value, int minimum_value)
   {
     if (tmp_value > maximum_value)
