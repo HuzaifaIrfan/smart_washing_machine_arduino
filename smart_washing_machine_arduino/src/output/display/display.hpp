@@ -1,10 +1,12 @@
-#ifndef DISPLAY_H
-#define DISPLAY_H
+#pragma once
+#ifndef DISPLAY_H_
+#define DISPLAY_H_
 
 #include <Arduino.h>
 #include <LiquidCrystal.h>
 
 #include "GPIO_CONFIG.hpp"
+
 
 
 class Display {
@@ -16,7 +18,9 @@ class Display {
     void set_cursor( uint8_t col, uint8_t row);
     void print(String message);
     void set_cursor_and_print(String message, uint8_t col, uint8_t row);
+    
     void display_current_routine(short machine_routine[], short machine_routine_size, short current_routine_state_pointer);
+    void display_count_down(int count_down);
 };
 
 extern Display display;

@@ -26,7 +26,7 @@ int adc_key_in = 0;
 int read_LCD_buttons()
 {
   adc_key_in = analogRead(KEYPAD_SHIELD_INPUT_PIN); // read the value from the sensor
-  Serial.println(adc_key_in);
+  // Serial.println(adc_key_in);
   // my buttons when read are centered at these valies: 0, 144, 329, 504, 741
   // we add approx 50 to those values and check to see if we are close
   if (adc_key_in > 1500)
@@ -48,10 +48,10 @@ int read_LCD_buttons()
 
 
 void Keypad::loop(){
-      display->set_cursor(9, 1);        // move cursor to second line "1" and 9 spaces over
-  display->print(String(millis() / 1000)); // display seconds elapsed since power-up
+  //     display->set_cursor(9, 1);        // move cursor to second line "1" and 9 spaces over
+  // display->print(String(millis() / 1000)); // display seconds elapsed since power-up
 
-  display->set_cursor(0, 1);          // move to the begining of the second line
+  display->set_cursor(9, 1);          // move to the begining of the second line
   lcd_key = read_LCD_buttons(); // read the buttons
 
   switch (lcd_key) // depending on which button was pushed, we perform an action
@@ -59,26 +59,31 @@ void Keypad::loop(){
   case btnRIGHT:
   {
     display->print("RIGHT ");
+    Serial.println("RIGHT");
     break;
   }
   case btnLEFT:
   {
     display->print("LEFT   ");
+    Serial.println("LEFT");
     break;
   }
   case btnUP:
   {
     display->print("UP    ");
+    Serial.println("UP");
     break;
   }
   case btnDOWN:
   {
     display->print("DOWN  ");
+    Serial.println("DOWN");
     break;
   }
   case btnSELECT:
   {
     display->print("SELECT");
+    Serial.println("SELECT");
     break;
   }
   // case btnNONE:

@@ -3,6 +3,8 @@
 
 #include <Arduino.h>
 
+#include "output/LABELS.hpp"
+
 #include "output/display/display.hpp"
 
 #include "washing_machine/washing_machine.hpp"
@@ -17,16 +19,7 @@
 #include "washing_machine_state/dryer_state.hpp"
 #include "washing_machine_state/routine_end_state.hpp"
 
-enum WASHING_MACHINE_STATES
-{
-  MACHINE_WAITING_STATE,
-  WATER_FILLING_STATE,
-  WASHER_SPINNING_STATE,
-  CLOTHES_SOAKING_STATE,
-  WATER_DRAINING_STATE,
-  DRYER_STATE,
-  ROUTINE_END_STATE
-};
+
 
 class WashingMachineController
 {
@@ -67,7 +60,9 @@ private:
 
   short current_routine_state_pointer = 0;
 
+  
   void next_routine_state();
+  void setup_next_state();
 
 public:
   WashingMachineController();

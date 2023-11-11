@@ -1,16 +1,10 @@
 
 #include "display.hpp"
+#include "output/LABELS.hpp"
+
 
 LiquidCrystal lcd(LCD_RS_PIN, LCD_EN_PIN, LCD_D0_PIN, LCD_D1_PIN, LCD_D2_PIN, LCD_D3_PIN);
 
-char WASHING_MACHINE_STATES_LABEL[7] = {
-    '-',
-    'F',
-    'W',
-    'S',
-    'O',
-    'D',
-    'E'};
 
 Display::Display()
 {
@@ -48,23 +42,35 @@ void Display::set_cursor_and_print(String message, uint8_t col, uint8_t row)
     print(message);
 }
 
+void Display::display_count_down(int count_down){
+    set_cursor(0, 1);
+    print(String(count_down)+"   ");
+}
+
 void Display::display_current_routine(short machine_routine[], short machine_routine_size, short current_routine_state_pointer)
 {
+
+    short state_index = machine_routine[current_routine_state_pointer];
+    set_cursor(8, 1);
+    print(String(WASHING_MACHINE_STATES_LABEL[state_index]));
 
     set_cursor(0, 0);
     print(">");
 
     for (int i = 0; i < machine_routine_size; ++i)
     {
+        short state_index = machine_routine[i];
         if (i < current_routine_state_pointer)
         {
             print(">");
         }
         else
         {
-            print(String(WASHING_MACHINE_STATES_LABEL[machine_routine[i]]));
+            print(String(WASHING_MACHINE_STATES_CHAR[state_index]));
         }
     }
+
+
 }
 
 Display display;

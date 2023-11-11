@@ -5,7 +5,10 @@
 
 #include <Arduino.h>
 
+#include "output/LABELS.hpp"
+#include "output/display/display.hpp"
 #include "washing_machine/washing_machine.hpp"
+
 
 class WashingMachineState
 {
@@ -14,9 +17,9 @@ protected:
   bool running_state = false;
   int count_down = 0;
 
-  int DEFAULT_COUNTDOWN = 0;
-  int MAXIMUM_COUNTDOWN = 0;
-  int MINIMUM_COUNTDOWN = 0;
+  int DEFAULT_COUNTDOWN = 5;
+  int MAXIMUM_COUNTDOWN = 5;
+  int MINIMUM_COUNTDOWN = 5;
 
   virtual void running_loop(){};
   virtual void paused_loop(){};
@@ -34,16 +37,16 @@ public:
     running_state = false;
   }
 
-  int validate(short tmp_count_down)
+  int validate(short tmp_count_down, int maximum_count_down, int minimum_count_down)
   {
-    if (tmp_count_down > MAXIMUM_COUNTDOWN)
+    if (tmp_count_down > maximum_count_down)
     {
-      return MAXIMUM_COUNTDOWN;
+      return maximum_count_down;
     }
 
-    if (tmp_count_down < MINIMUM_COUNTDOWN)
+    if (tmp_count_down < minimum_count_down)
     {
-      return MINIMUM_COUNTDOWN;
+      return minimum_count_down;
     }
 
     return tmp_count_down;
@@ -55,8 +58,10 @@ public:
 
   virtual void setup(int tmp_count_down)
   {
-    count_down = validate(tmp_count_down);
+    count_down = validate(tmp_count_down, MAXIMUM_COUNTDOWN, MINIMUM_COUNTDOWN);
   }
+
+
 
   bool loop()
   {
@@ -64,6 +69,8 @@ public:
     {
       running_loop();
       count_down = count_down - 1;
+      display.display_count_down(count_down);
+      Serial.println(count_down);
     }
     else
     {

@@ -12,7 +12,8 @@ void ClothesSoakingState::setup()
 
 void ClothesSoakingState::setup(int tmp_count_down)
   {
-    count_down = validate(tmp_count_down);
+    count_down = validate(tmp_count_down, MAXIMUM_COUNTDOWN, MINIMUM_COUNTDOWN);
+    Serial.println(WASHING_MACHINE_STATES_LABEL[CLOTHES_SOAKING_STATE]+" countdown Set: "+ String(count_down));
   }
 
 

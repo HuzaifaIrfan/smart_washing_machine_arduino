@@ -22,10 +22,12 @@ void Buttons::check()
     if (hold_skip_input_button->isPressed())
     {
         display.set_cursor_and_print("H1", 14, 0);
+        Serial.println("Hold");
     }
     if (hold_skip_input_button->isReleased())
     {
          display.set_cursor_and_print("H0", 14, 0);
+         Serial.println("Skip");
     }
 }
 
