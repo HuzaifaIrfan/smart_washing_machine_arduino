@@ -10,7 +10,7 @@ Lid::Lid(short pin) : pin(pin)
 void Lid::setup()
 {
   pinMode(pin, INPUT_PULLUP);
-  attachInterrupt(digitalPinToInterrupt(pin), lid_open_or_dryer_vibration_switch_interrupt_service_routine, FALLING);
+  attachInterrupt(digitalPinToInterrupt(pin), lid_open_or_dryer_vibration_switch_interrupt_service_routine, RISING);
 }
 
 void Lid::lid_open_or_dryer_vibration_switch_interrupt_service_routine()
@@ -20,7 +20,7 @@ void Lid::lid_open_or_dryer_vibration_switch_interrupt_service_routine()
 
 void Lid::loop()
 {
-  if (digitalRead(pin) == 0)
+  if (digitalRead(pin) == 1)
   {
     lid_open_or_vibration_interrupted = true;
   }
@@ -30,7 +30,7 @@ void Lid::loop()
 
 void Lid::close()
 {
-  if (digitalRead(pin) == 1)
+  if (digitalRead(pin) == 0)
   {
     lid_open_or_vibration_interrupted = false;
   }
