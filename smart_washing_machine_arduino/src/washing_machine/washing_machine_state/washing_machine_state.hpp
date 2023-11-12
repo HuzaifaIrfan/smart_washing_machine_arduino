@@ -5,10 +5,11 @@
 
 #include <Arduino.h>
 
+#include "utils/utils.hpp"
+
 #include "output/LABELS.hpp"
 #include "output/display/display.hpp"
 #include "washing_machine/washing_machine.hpp"
-
 
 class WashingMachineState
 {
@@ -40,23 +41,19 @@ public:
     hold_state = true;
   }
 
-  bool is_paused(){
+  bool is_paused()
+  {
     return not running_state;
   }
 
-  int validate(short tmp_value, int maximum_value, int minimum_value)
+  bool is_hold()
   {
-    if (tmp_value > maximum_value)
-    {
-      return maximum_value;
-    }
+    return hold_state;
+  }
 
-    if (tmp_value < minimum_value)
-    {
-      return minimum_value;
-    }
-
-    return tmp_value;
+  int get_count_down()
+  {
+    return count_down;
   }
 
   virtual void setup()
@@ -68,20 +65,18 @@ public:
     count_down = validate(tmp_count_down, MAXIMUM_COUNTDOWN, MINIMUM_COUNTDOWN);
   }
 
-
   virtual void setup(int tmp_count_down, int var_1, int var_2)
   {
     setup(tmp_count_down);
   }
-
-
 
   bool loop()
   {
     if (running_state)
     {
       running_loop();
-      if(not hold_state){
+      if (not hold_state)
+      {
         count_down = count_down - 1;
       }
       display.display_count_down(count_down);
