@@ -29,7 +29,7 @@ int machine_routines[16][4] = {
     {MACHINE_WAITING_STATE, 1, 0, 0},
     {MACHINE_WAITING_STATE, 1, 0, 0}};
 
-void replace_machine_routines(int tmp_machine_routines[16][4])
+void change_machine_routines(int tmp_machine_routines[16][4])
 {
     for (int i = 0; i < 16; ++i)
     {

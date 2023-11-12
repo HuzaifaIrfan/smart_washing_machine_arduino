@@ -4,7 +4,7 @@
 
 #include "output/LABELS.hpp"
 
-void replace_machine_routines(int tmp_machine_routines[16][4]);
+void change_machine_routines(int tmp_machine_routines[16][4]);
 
 extern int machine_routines[][4];
 
