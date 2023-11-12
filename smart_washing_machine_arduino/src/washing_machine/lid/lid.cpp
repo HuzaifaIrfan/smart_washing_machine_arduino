@@ -24,8 +24,9 @@ void Lid::loop()
   {
     lid_open_or_vibration_interrupted = true;
   }
-  // Serial.println(lid_open_or_vibration_interrupted);
+  Serial.println("Lid: "+String(lid_open_or_vibration_interrupted));
 }
+
 
 void Lid::close()
 {
