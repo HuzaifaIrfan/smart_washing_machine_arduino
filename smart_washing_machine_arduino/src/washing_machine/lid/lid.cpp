@@ -27,7 +27,6 @@ void Lid::loop()
   Serial.println("Lid: "+String(lid_open_or_vibration_interrupted));
 }
 
-
 void Lid::close()
 {
   if (digitalRead(pin) == 0)

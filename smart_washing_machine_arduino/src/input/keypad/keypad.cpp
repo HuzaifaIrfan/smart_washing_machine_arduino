@@ -93,14 +93,14 @@ void Keypad::loop()
   {
     // display->print("UP    ");
     Serial.println("Increase Current State");
-    washing_machine_controller->increase_current_state_index();
+    washing_machine_controller->increase_current_task_index();
     break;
   }
   case btnDOWN:
   {
     // display->print("DOWN  ");
     Serial.println("Decrease Current State");
-    washing_machine_controller->decrease_current_state_index();
+    washing_machine_controller->decrease_current_task_index();
     break;
   }
   case btnRIGHT:
