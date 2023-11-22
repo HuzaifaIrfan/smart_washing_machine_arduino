@@ -32,6 +32,7 @@ public:
 
   virtual void run()
   {
+    washing_machine->close_lid();
     running_task = true;
     hold_task = false;
   }
@@ -39,6 +40,12 @@ public:
   {
     running_task = false;
     hold_task = true;
+  }
+
+
+  bool is_running()
+  {
+    return running_task;
   }
 
   bool is_paused()
@@ -94,6 +101,7 @@ public:
     if (count_down <= 0)
     {
       pause();
+      paused_loop();
       return true;
     }
     return false;
@@ -104,10 +112,15 @@ public:
     hold_task = true;
   }
 
+  void unhold()
+  {
+    hold_task = false;
+  }
+
+
   virtual bool skip()
   {
     count_down = 0;
-    hold_task = false;
     return true;
   }
 };

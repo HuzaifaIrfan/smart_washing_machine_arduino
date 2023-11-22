@@ -5,9 +5,14 @@ WatchDog::WatchDog()
 {
 }
 
+void WatchDog::disable()
+{
+    wdt_disable(); // Disable WDT
+}
+
 void WatchDog::setup()
 {
-    wdt_disable();       // Disable WDT
+    disable();
     wdt_enable(WDTO_4S); // Enable WDT with a timeout of 8 seconds
     Serial.println("WDT Enabled");
 }

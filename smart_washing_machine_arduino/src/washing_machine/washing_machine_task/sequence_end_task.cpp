@@ -36,9 +36,3 @@ void SequenceEndTask::paused_loop()
 {
     running_loop();
 }
-
-bool SequenceEndTask::skip()
-{
-    hold_task = false;
-    return false;
-}
